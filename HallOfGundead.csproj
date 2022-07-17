@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6D7A494-722E-4763-959B-C2D6B6A42B01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HallOfGundead</RootNamespace>
+    <AssemblyName>HallOfGundead</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp.Base.mm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\Assembly-CSharp.Base.mm.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.RuntimeDetour">
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\MonoMod.RuntimeDetour.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.Utils">
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\MonoMod.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="PlayMaker, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\PlayMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\!ETG\EnterTheGungeon\EtG_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\EnterTheGungeon\EtG_Data\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\EnterTheGungeon\EtG_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Base.mm">
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\UnityEngine.Base.mm.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule.Base.mm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\UnityEngine.CoreModule.Base.mm.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GuiltMod\bin\Debug\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CustomItems\CustomItems\bin\Debug\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIs\ChallengeAPI\ChallengeBuilder.cs" />
+    <Compile Include="APIs\ChallengeAPI\ChallengeTools.cs" />
+    <Compile Include="APIs\ChallengeAPI\dfLanguageExtraStringHolder.cs" />
+    <Compile Include="APIs\ChallengeAPI\FakePrefabHandler.cs" />
+    <Compile Include="APIs\ChallengeAPI\ResourceGetter.cs" />
+    <Compile Include="APIs\CursorAPI\CursorMaker.cs" />
+    <Compile Include="APIs\CursorAPI\CursorTools.cs" />
+    <Compile Include="APIs\CursorAPI\ResourceGetter.cs" />
+    <Compile Include="APIs\CursorAPI\UIRootProcessedFlag.cs" />
+    <Compile Include="APIs\GungeonAPI\DungeonHandler.cs" />
+    <Compile Include="APIs\GungeonAPI\DungeonHooks.cs" />
+    <Compile Include="APIs\GungeonAPI\GungeonAPI.cs" />
+    <Compile Include="APIs\GungeonAPI\HitboxMonitor.cs" />
+    <Compile Include="APIs\GungeonAPI\NPCBuilder.cs" />
+    <Compile Include="APIs\GungeonAPI\OfficialFlows.cs" />
+    <Compile Include="APIs\GungeonAPI\ResourceExtractor.cs" />
+    <Compile Include="APIs\GungeonAPI\RoomBuilder.cs" />
+    <Compile Include="APIs\GungeonAPI\RoomFactory.cs" />
+    <Compile Include="APIs\GungeonAPI\SampleFlow.cs" />
+    <Compile Include="APIs\GungeonAPI\ShrineFactory.cs" />
+    <Compile Include="APIs\GungeonAPI\ShrineFakePrefab.cs" />
+    <Compile Include="APIs\GungeonAPI\ShrineFakePrefabHooks.cs" />
+    <Compile Include="APIs\GungeonAPI\SimpleInteractable.cs" />
+    <Compile Include="APIs\GungeonAPI\SimpleShrine.cs" />
+    <Compile Include="APIs\GungeonAPI\StaticReferences.cs" />
+    <Compile Include="APIs\GungeonAPI\TextureStitcher.cs" />
+    <Compile Include="APIs\GungeonAPI\Tools.cs" />
+    <Compile Include="DizzyChallenge.cs" />
+    <Compile Include="EnemyCode\BlackCat.cs" />
+    <Compile Include="EnemyCode\VampireMantis.cs" />
+    <Compile Include="EnemyCode\VampireMantisIntroDoer.cs" />
+    <Compile Include="EnemyCode\Witch-kin.cs" />
+    <Compile Include="FloorShit\BigPompEntranceController.cs" />
+    <Compile Include="FloorShit\CustomValidTilesets.cs" />
+    <Compile Include="FloorShit\f1b_Hall_flow_01.cs" />
+    <Compile Include="FloorShit\FlowHelpers.cs" />
+    <Compile Include="FloorShit\HallDungeon.cs" />
+    <Compile Include="FloorShit\HallDungeonFlows.cs" />
+    <Compile Include="FloorShit\HallRoomPrefabs.cs" />
+    <Compile Include="HallDungeonCollections.cs" />
+    <Compile Include="HalloweenChest.cs" />
+    <Compile Include="HallPrefabs.cs" />
+    <Compile Include="Setup\AdvancedGunBehavior.cs" />
+    <Compile Include="Setup\AdvancedLogging.cs" />
+    <Compile Include="Setup\AdvancedStringDb.cs" />
+    <Compile Include="Setup\AssetBundleLoader.cs" />
+    <Compile Include="Setup\AudioResourceLoader.cs" />
+    <Compile Include="APIs\BulletBuilder\BulletBuilder.cs" />
+    <Compile Include="APIs\BulletBuilder\FakePrefab\FakePrefab.cs" />
+    <Compile Include="APIs\BulletBuilder\FakePrefab\FakePrefabHooks.cs" />
+    <Compile Include="APIs\BulletBuilder\ResourceExtractor.cs" />
+    <Compile Include="APIs\BulletBuilder\SpriteBuilder.cs" />
+    <Compile Include="APIs\EnemyAPI\BossBuilder.cs" />
+    <Compile Include="APIs\EnemyAPI\EnemyBuilder.cs" />
+    <Compile Include="APIs\EnemyAPI\EnemyTools.cs" />
+    <Compile Include="APIs\EnemyAPI\Tools.cs" />
+    <Compile Include="EnemyCode\Succubus.cs" />
+    <Compile Include="APIs\EnemyAPI\Hooks.cs" />
+    <Compile Include="APIs\EnemyAPI\OverrideBehavior.cs" />
+    <Compile Include="EnemyCode\Trankenstine.cs" />
+    <Compile Include="APIs\ItemAPI\PlayerEventAdder.cs" />
+    <Compile Include="APIs\ItemAPI\CompanionBuilder.cs" />
+    <Compile Include="APIs\ItemAPI\CustomSynergies.cs" />
+    <Compile Include="APIs\ItemAPI\FakePrefab\FakePrefab.cs" />
+    <Compile Include="APIs\ItemAPI\FakePrefab\FakePrefabHooks.cs" />
+    <Compile Include="APIs\ItemAPI\ItemBuilder.cs" />
+    <Compile Include="FLoorModModule.cs" />
+    <Compile Include="APIs\ItemAPI\Tools.cs" />
+    <Compile Include="Items\BloodiedChamber.cs" />
+    <Compile Include="Items\BossSoul.cs" />
+    <Compile Include="Library.cs" />
+    <Compile Include="Setup\ChestBuilder.cs" />
+    <Compile Include="Setup\ProjectileSlashingBehaviour.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="APIs\ItemAPI\ResourceExtractor.cs" />
+    <Compile Include="APIs\ItemAPI\SpriteBuilder.cs" />
+    <Compile Include="EnemyCode\PumpKin.cs" />
+    <Compile Include="Setup\resourceLoaderSoundbanks.cs" />
+    <Compile Include="Items\NonBossSoul.cs" />
+    <Compile Include="Setup\SlashDoer.cs" />
+    <Compile Include="Setup\TextureScale.cs" />
+    <Compile Include="Setup\Toolbox.cs" />
+    <Compile Include="Setup\VFXLibrary.cs" />
+    <Compile Include="Weapons\SoulEater.cs" />
+    <Compile Include="Weapons\SoulEaterEvolution.cs" />
+    <Compile Include="Weapons\spapiGun.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\GraveYardEntrance.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\GraveYardExit.room" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\goop_standard_base_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pumpKin\pomp_die_001.png" />
+    <EmbeddedResource Include="Resources\pumpKin\pomp_die_002.png" />
+    <EmbeddedResource Include="Resources\pumpKin\pomp_idle_001.png" />
+    <EmbeddedResource Include="Resources\pumpKin\pomp_idle_002.png" />
+    <EmbeddedResource Include="Resources\pumpKin\pomp_idle_003.png" />
+    <EmbeddedResource Include="Resources\pumpKin\pomp_idle_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Trankenstein\TrankensteinBullet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BossSoul.png" />
+    <EmbeddedResource Include="Resources\NonBossSoul.png" />
+    <EmbeddedResource Include="Resources\pomp_noface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BloodiedChamber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_open_001.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_open_002.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_open_003.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_open_004.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_open_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_appear_001.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_appear_002.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_appear_003.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_appear_004.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_appear_005.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_break_001.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_break_002.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_break_003.png" />
+    <EmbeddedResource Include="Resources\pomp_chest\pomp_chest_break_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DizzyChallengeFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\gtcktpCursor_Cursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Skull_Cursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Pomp_Cursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\unknown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_idle_left_001.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_idle_left_002.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_idle_right_001.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_idle_right_002.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_left_001.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_left_002.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_left_003.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_left_004.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_left_005.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_left_006.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_right_001.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_right_002.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_right_003.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_right_004.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_right_005.png" />
+    <EmbeddedResource Include="Resources\Trankenstein\tranken_run_right_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pumpKin\PompbulonAmmonomicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pumpKin\pomp_die_003.png" />
+    <EmbeddedResource Include="Resources\pumpKin\pomp_die_004.png" />
+    <EmbeddedResource Include="Resources\pumpKin\pomp_die_005.png" />
+    <EmbeddedResource Include="Resources\pumpKin\pomp_die_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Succu\Succu_run_left_001.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_left_002.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_left_003.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_left_004.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_left_005.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_left_006.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_left_007.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_left_008.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_left_009.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_right_001.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_right_002.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_right_003.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_right_004.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_right_005.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_right_006.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_right_007.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_right_008.png" />
+    <EmbeddedResource Include="Resources\Succu\Succu_run_right_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\Hollow_Pumpkin_Room.room" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Witch_Kin\bullet_hand_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_left_front_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_left_front_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_left_front_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_left_front_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_left_front_005.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_right_front_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_right_front_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_right_front_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_right_front_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_death_right_front_005.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_back_left_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_back_right_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_left_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_left_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_left_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_left_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_right_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_right_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_right_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_right_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_idle_back_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_idle_left_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_idle_right_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_005.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_006.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_back_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_back_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_back_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_back_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_back_005.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_left_back_006.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_005.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_006.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_back_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_back_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_back_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_back_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_back_005.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_run_right_back_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HallEntrance_001.png" />
+    <EmbeddedResource Include="Resources\HallEntrance_002.png" />
+    <EmbeddedResource Include="Resources\HallEntrance_003.png" />
+    <EmbeddedResource Include="Resources\HallEntrance_004.png" />
+    <EmbeddedResource Include="Resources\HallEntrance_005.png" />
+    <EmbeddedResource Include="Resources\HallEntrance_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HallEntrance_shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Boss_Psychoman\bat_flap_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\bat_flap_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\bat_flap_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\bat_flap_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\bat_flap_005.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\bat_flap_006.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_005.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_006.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_007.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_008.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_009.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_010.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_left_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_left_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_left_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_left_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_left_005.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_left_006.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_right_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_right_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_right_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_right_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_right_005.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_right_006.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_v1_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_v1_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_v1_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_attack_v1_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_cape_attack_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_cape_attack_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_cape_attack_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_cape_attack_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_cape_attack_005.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_cape_out_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_cape_out_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_cape_out_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_die_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_die_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_die_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_die_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_hit_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_hit_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_hit_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_idle_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_idle_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_idle_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_idle_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_intro_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_intro_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_intro_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_intro_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_intro_005.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_intro_006.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_003.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_004.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_005.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_006.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_007.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_008.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_009.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_010.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_011.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_012.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_014.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_in_001.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_in_002.png" />
+    <EmbeddedResource Include="Resources\Boss_Psychoman\psychomant_teleport_in_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Vampire_Mantis_Bosscard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\VampireBossRoom.room" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_acrossthepond.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_aktranken.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_amethystshard.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_askew.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_battrow.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_bombard.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_boneangle.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_boneanza.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_bonegrindmachine.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_boneworks.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_brokenleg.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_cellsofabyss.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_chambersofevil.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_cheeseslice.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_coffinslide.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_crookedhouse.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_crooksakimbo.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_crossyourheartandhopetodie.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_cursedroundabout.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_cursesuponye.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_curvyandgorgeous.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_darkmachinations.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_darkritual.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_deadroom.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_dembones.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_diagonalley.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_dodgethis.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_fantasyisland.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_funnel.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_ghostnook.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_guardianspirit.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_hallofconfusion.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_hauntedhalls.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_hauntedmansion.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_intestine.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_islasnipa.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_ithinkthereforeijam.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_itsalive.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_jammedwitchgobrr.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_joinusinthespiral.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_jumpabout.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_lakeoffire.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_lostskull.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_massdelusion.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_massiveturd.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_minecraftcavenoise.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_morgue.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_mountainsofmadness.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_nowitsjustyouandme.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_ofthepumpking.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_pumpkavern.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_pumpkinfeast.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_redrum.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_roadtonowhere.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_roughtimes.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_separatedtranks.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_shard.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_shutzmidikov.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_spiderproblem.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_spookyscaryskelletons.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_stuckinthemiddlewithyou.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_succmedaddy.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_succywuccy.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_summoningroom.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_thatonepixelartroom.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_thegummystarringbrengunfrasier.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_theiris.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_themusictheymake.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_thepitofdespair.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_thepyramid.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_theraveyard.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_torturechamber.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_towerofterror.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_twolillads.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_ultrapump.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_waitingfortheworms.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_whatevenisthis.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_whichwitch.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_witchbitch.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_youcanrun.room" />
+    <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_youhaveangeredthehorde.room" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
