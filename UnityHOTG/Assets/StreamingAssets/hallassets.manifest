@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 868597214
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d8195d9559bc90144a3a28ba8a5a66ec
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8e8e18cb26bfe573a307e8095079a2dc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/HallAssets/BigPomp_Icon.prefab
+- Assets/HallAssets/ENV_Tileset_Hall.png
+- Assets/HallAssets/Hall_BigPomp.prefab
+- Assets/HallAssets/BigPomp_Icon.png
+Dependencies: []

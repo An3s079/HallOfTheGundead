@@ -31,7 +31,7 @@ namespace HallOfGundead
             //
             prefab = EnemyBuilder.BuildPrefab("Succubus", guid, spritePaths[0], new IntVector2(0, 0), new IntVector2(8, 9), false);
             var companion = prefab.AddComponent<EnemyBehavior>();
-            companion.aiActor.SetIsFlying(false, "idk lmao, it just cant. DO I NEED TO EXPLAIN MYSLEF TO YOU MUTHAFUCKA?", true, true);
+            companion.aiActor.SetIsFlying(false, "idk lmao, it just cant. DO I NEED TO EXPLAIN MYSLEF TO YOU MUTHA*****?", true, true);
             companion.aiActor.knockbackDoer.weight = 50;
             companion.aiActor.MovementSpeed = 7f;
             companion.aiActor.healthHaver.PreventAllDamage = false;
@@ -120,10 +120,10 @@ namespace HallOfGundead
             BehaviorSpeculator behaviorSpeculator = EnemyDatabase.GetOrLoadByGuid("01972dee89fc4404a5c408d50007dad5").behaviorSpeculator;
             bs.OverrideBehaviors = behaviorSpeculator.OverrideBehaviors;
             bs.OtherBehaviors = behaviorSpeculator.OtherBehaviors;
-            shootpoint = new GameObject("fuck");
+            shootpoint = new GameObject("shootpointSuccu");
             shootpoint.transform.parent = companion.transform;
             shootpoint.transform.position = companion.sprite.WorldCenter;
-            GameObject m_CachedGunAttachPoint = companion.transform.Find("fuck").gameObject;
+            GameObject m_CachedGunAttachPoint = companion.transform.Find("shootpointSuccu").gameObject;
 			bs.TargetBehaviors = new List<TargetBehaviorBase>
 			{
                 new TargetPlayerBehavior

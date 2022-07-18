@@ -106,9 +106,7 @@ namespace HallOfGundead
                     //Log("added" + i);
                 }
 
-                var ai = EnemyDatabase.GetOrLoadByGuid("31a3ea0c54a745e182e22ea54844a82d");
-                foreach (var b in ai.bulletBank.Bullets)
-                    AdvancedLogging.Log(b.Name);
+                
 
                 HalloweenChest.Init(); //has to be at bottom
                 var Go = new GameObject();

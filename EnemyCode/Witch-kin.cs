@@ -10,6 +10,7 @@ using Dungeonator;
 using Brave.BulletScript;
 using EnemyBulletBuilder;
 using System.Collections;
+using System.Reflection;
 
 namespace HallOfGundead
 {
@@ -28,62 +29,91 @@ namespace HallOfGundead
         {
 			
 			//idles
-			"HallOfGundead/Resources/Witch_Kin/witch_kin_idle_left_001",
+			"HallOfGundead/Resources/Witch_Kin/witch_kin_idle_left_001", //0
             "HallOfGundead/Resources/Witch_Kin/witch_kin_idle_right_001",
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_idle_back_001",
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_idle_back_001", 
             
-            //run
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_001",
+            //run left
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_001",//3
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_002",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_003",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_004",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_005",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_006",
 
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_back_001",
+            //run back left
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_back_001",//9
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_back_002",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_back_003",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_back_004",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_back_005",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_left_back_006",
 
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_001",
+            //run right 
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_001", //15
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_002",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_003",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_004",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_005",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_006",
 
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_back_001",
+            //run back right 
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_back_001",//21
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_back_002",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_back_003",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_back_004",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_back_005",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_run_right_back_006",
+            
+            //charge back
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_back_001", //27
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_back_002",
 
-            //charge
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_back_left_001",
+            //charge back left
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_back_left_001", //29
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_back_left_002",
 
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_left_001",
+            //charge left
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_left_001",//31
             "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_left_002",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_left_003",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_left_004",
 
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_back_right_001",
+            //charge back right
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_back_right_001",//35
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_back_right_002",
 
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_right_001",
+            //charge right
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_right_001",//37
             "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_right_002",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_right_003",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_right_004",
 
-			//die
-			"HallOfGundead/Resources/Witch_Kin/witch_kin_death_left_front_001",
+            //charge front right
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_right_001",//41
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_right_002",
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_right_003",
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_right_004",
+
+            //charge front left 
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_left_001",//45
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_left_002",
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_left_003",
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_left_004",
+
+            //charge front
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_001", //49
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_fly_charge_front_002",
+
+			//die left
+			"HallOfGundead/Resources/Witch_Kin/witch_kin_death_left_front_001",//51
             "HallOfGundead/Resources/Witch_Kin/witch_kin_death_left_front_002",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_death_left_front_003",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_death_left_front_004",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_death_left_front_005",
 
-            "HallOfGundead/Resources/Witch_Kin/witch_kin_death_right_front_001",
+            //die right
+            "HallOfGundead/Resources/Witch_Kin/witch_kin_death_right_front_001",//56
             "HallOfGundead/Resources/Witch_Kin/witch_kin_death_right_front_001",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_death_right_front_001",
             "HallOfGundead/Resources/Witch_Kin/witch_kin_death_right_front_001",
@@ -197,14 +227,18 @@ namespace HallOfGundead
                         name = "charge",
                         anim = new DirectionalAnimation
                         {
-                            Type = DirectionalAnimation.DirectionType.FourWay,
-                            Flipped = new DirectionalAnimation.FlipType[4],
+                            Type = DirectionalAnimation.DirectionType.EightWayOrdinal,
+                            Flipped = new DirectionalAnimation.FlipType[8],
                             AnimNames = new string[]
                             {
-                            "charge_back_left",
-                            "charge_back_right",
-                            "charge_front_left",
-                            "charge_front_right",
+                            "charge_north",
+                            "charge_south",
+                            "charge_north_west",
+                            "charge_north_east",
+                            "charge_south_west",
+                            "charge_south_east",
+                            "charge_east",
+                            "charge_west"
                             }
 
                         }
@@ -217,15 +251,18 @@ namespace HallOfGundead
                     Flipped = new DirectionalAnimation.FlipType[4],
                     AnimNames = new string[]
                         {
-                        "run_back_left",
-                        "run_front_right",
-                        "run_front_left",
-                        "run_back_right",
-
+                        "run_back_right", //Good
+						"run_front_right", //Good
+						"run_front_left",//Good
+						"run_back_left",//Good
                         }
                 };
 
 
+                //NOW THIS IS BAD BAD CODE
+                //I DONT KNOW WHY IT WORKS LIKE THIS, BUT THE ANIMATION NAME DOES NOT MATCH THE ANIMATION DIRECTION
+                //I DO NOT KNOW WHY IT DOESNT PLAY THE RIGHT DIRECTIONA ANIMATION AND ITS SCRAMBLED
+                //BUT IT IS, I SPENT LIKE 30 MINUTES REARRANGING THEM TRYING TO GET IT TO WORK AND I WANT TO CRY.
                 bool flag3 = WitchKinCollection == null;
                 if (flag3)
                 {
@@ -287,37 +324,36 @@ namespace HallOfGundead
                     24,
                     25,
                     26
-                    }, "run_back_left", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 10f;
+                    }, "run_back_right", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 10f;
 
                     ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
                     {
 
-                    27
-                    }, "charge_back_left", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 1f;
+                    27,
+                    28
+                    }, "charge_north", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8f;
 
                     ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
                     {
-
-                    28,
                     29,
-                    30,
-                    31
-                    }, "charge_front_left", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8f;
+                    30
+                    }, "charge_west", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8f;
 
                     ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
                     {
 
-                    32
-                    }, "charge_back_right", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 1f;
-
-                    ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
-                    {
-
+                    31,
+                    32,
                     33,
-                    34,
+                    34
+                    }, "charge_east", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8f;
+
+                    ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
+                    {
+
                     35,
                     36
-                    }, "charge_front_right", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8;
+                    }, "charge_south", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8f;
 
                     ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
                     {
@@ -325,18 +361,49 @@ namespace HallOfGundead
                     37,
                     38,
                     39,
-                    40,
-                    41
+                    40
+                    }, "charge_north_west", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8f;
+
+                    ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
+                    {
+
+                    41,
+                    42,
+                    43,
+                    44
+                    }, "charge_north_east", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8;
+
+                    ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
+                    {
+                    45,
+                    46,
+                    47,
+                    48
+                    }, "charge_south_east", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8;
+                    ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
+                    {
+
+                    49,
+                    50
+                    }, "charge_south_west", tk2dSpriteAnimationClip.WrapMode.Loop).fps = 8f;
+                    ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
+                    {
+
+                    51,
+                    52,
+                    53,
+                    54,
+                    55
                     }, "die_left", tk2dSpriteAnimationClip.WrapMode.Once).fps = 5;
 
                     ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
                     {
 
-                    42,
-                    43,
-                    44,
-                    45,
-                    46
+                    56,
+                    57,
+                    58,
+                    59,
+                    60
                     }, "die_right", tk2dSpriteAnimationClip.WrapMode.Once).fps = 5;
                 }
 
@@ -411,16 +478,20 @@ namespace HallOfGundead
                     HideGun = true,
                     RequiresLineOfSight = true,
                     Cooldown = 8,
-                    leadAmount = 0.5f
+                    leadAmount = 0.5f,
+                    collidesWithDodgeRollingPlayers = false,
+                    maxChargeDistance = 15,
+                    stoppedByProjectiles = true,
+                    stopDuringPrime = true
                 }
                 };
                 bs.MovementBehaviors = new List<MovementBehaviorBase>
             {
                 new SeekTargetBehavior
                 {
-                    StopWhenInRange = false,
-                    CustomRange = 0f,
-                    LineOfSight = false,
+                    StopWhenInRange = true,
+                    CustomRange = 10f,
+                    LineOfSight = true,
                     ReturnToSpawn = false,
                     SpawnTetherDistance = 0f,
                     PathInterval = 0.5f,
@@ -431,7 +502,8 @@ namespace HallOfGundead
                 }
             };
 
-                prefab.GetOrAddComponent<ObjectVisibilityManager>();
+                prefab.GetOrAddComponent<ObjectVisibilityManager>(); 
+                //bs.gameObject.AddComponent<AnimationSetter>();
                 bs.InstantFirstTick = behaviorSpeculator.InstantFirstTick;
                 bs.TickInterval = behaviorSpeculator.TickInterval;
                 bs.PostAwakenDelay = behaviorSpeculator.PostAwakenDelay;
@@ -452,7 +524,51 @@ namespace HallOfGundead
         }
 
 
+        private class AnimationSetter : MonoBehaviour
+        {
+            BehaviorSpeculator behav;           
+            SpeculativeRigidbody specrigidbody;
+            AIActor actor;
+            public void Start()
+            {
+                behav = gameObject.GetComponent<BehaviorSpeculator>();
+                specrigidbody = gameObject.GetComponent<SpeculativeRigidbody>();
+                actor = gameObject.GetComponent<AIActor>();
+            }
 
+            public void Update()
+            { 
+                    (behav.AttackBehaviors[1] as ChargeBehavior).chargeAnim = GetAnimation();
+                
+            }
+
+            public string GetAnimation()
+            {
+                var target = (actor.OverrideTarget == null) ? actor.PlayerTarget.gameActor.specRigidbody : actor.OverrideTarget;
+                switch (Mathf.RoundToInt((BraveMathCollege.Atan2Degrees(specrigidbody.Position.GetPixelVector2().y - target.Position.GetPixelVector2().y, specrigidbody.Position.GetPixelVector2().x - target.Position.GetPixelVector2().x)) / 45) * 45)
+                {
+                    case 90:
+                        return "charge_front";
+                    case 45:
+                        return "charge_front_left";
+                    case -90:
+                        return "charge_back";
+                    case 0:
+                        return "charge_left";
+                    case -135:
+                        return "charge_front_left";
+                    case -180:
+                        return "charge_right";
+                    case 135:
+                        return "charge_front_right";
+                    case -45:
+                        return "charge_back_left";
+                    case 180:
+                        return "charge_back_right";
+                }
+                return null;
+            }
+        }
 
         public class EnemyBehavior : BraveBehaviour
         {

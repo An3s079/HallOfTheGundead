@@ -138,13 +138,13 @@
     <Compile Include="EnemyCode\VampireMantis.cs" />
     <Compile Include="EnemyCode\VampireMantisIntroDoer.cs" />
     <Compile Include="EnemyCode\Witch-kin.cs" />
-    <Compile Include="FloorShit\BigPompEntranceController.cs" />
-    <Compile Include="FloorShit\CustomValidTilesets.cs" />
-    <Compile Include="FloorShit\f1b_Hall_flow_01.cs" />
-    <Compile Include="FloorShit\FlowHelpers.cs" />
-    <Compile Include="FloorShit\HallDungeon.cs" />
-    <Compile Include="FloorShit\HallDungeonFlows.cs" />
-    <Compile Include="FloorShit\HallRoomPrefabs.cs" />
+    <Compile Include="FloorCode\BigPompEntranceController.cs" />
+    <Compile Include="FloorCode\CustomValidTilesets.cs" />
+    <Compile Include="FloorCode\f1b_Hall_flow_01.cs" />
+    <Compile Include="FloorCode\FlowHelpers.cs" />
+    <Compile Include="FloorCode\HallDungeon.cs" />
+    <Compile Include="FloorCode\HallDungeonFlows.cs" />
+    <Compile Include="FloorCode\HallRoomPrefabs.cs" />
     <Compile Include="HallDungeonCollections.cs" />
     <Compile Include="HalloweenChest.cs" />
     <Compile Include="HallPrefabs.cs" />
@@ -527,6 +527,27 @@
     <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_witchbitch.room" />
     <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_youcanrun.room" />
     <EmbeddedResource Include="Resources\HallOfGundeadRooms\hall_youhaveangeredthehorde.room" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pumpKin\pomp_hit_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_back_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_back_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_back_left_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_back_right_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_left_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_left_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_left_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_left_004.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_right_001.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_right_002.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_right_003.png" />
+    <EmbeddedResource Include="Resources\Witch_Kin\witch_kin_fly_charge_front_right_004.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

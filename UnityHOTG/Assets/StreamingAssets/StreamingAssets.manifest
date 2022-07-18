@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 1932010093
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: hallassets
+      Dependencies: {}

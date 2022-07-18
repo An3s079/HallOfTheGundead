@@ -41,16 +41,18 @@ namespace HallOfGundead
             "HallOfGundead/Resources/pumpKin/pomp_die_004",
             "HallOfGundead/Resources/pumpKin/pomp_die_005",
             "HallOfGundead/Resources/pumpKin/pomp_die_006",
-
+            //hit
+            "HallOfGundead/Resources/pumpKin/pomp_hit_001",
         };
         public static void BuildPrefab()
 		{
 			//
 			bool exists = prefab != null || EnemyBuilder.Dictionary.ContainsKey(guid);
-			if (!exists)
-			{
+            if (!exists)
+            {
 
-				prefab = EnemyBuilder.BuildPrefab("pumpkin", guid, spritePaths[0], new IntVector2(0, 0), new IntVector2(8, 9), false);
+                prefab = EnemyBuilder.BuildPrefab("pumpkin", guid, spritePaths[0], new IntVector2(4, 3), new IntVector2(9, 8), false);
+                Toolbox.GenerateOrAddToRigidBody(prefab, CollisionLayer.EnemyHitBox, PixelCollider.PixelColliderGeneration.Manual, IsTrigger: false, UsesPixelsAsUnitSize: true, dimensions: new IntVector2(20, 23), offset: new IntVector2(5,0));
                 var companion = prefab.AddComponent<EnemyBehavior>();
                 companion.aiActor.SetIsFlying(false, "no wings bish");
                 companion.aiActor.knockbackDoer.weight = 80;
@@ -73,6 +75,15 @@ namespace HallOfGundead
                     AnimNames = new string[]
                     {
                         "idle"
+                    }
+                };
+                aiAnimator.HitAnimation = new DirectionalAnimation
+                {
+                    Type = DirectionalAnimation.DirectionType.TwoWayHorizontal,
+                    Flipped = new DirectionalAnimation.FlipType[2],
+                    AnimNames = new string[]
+                    {
+                        "hit"
                     }
                 };
                 aiAnimator.OtherAnimations = new List<AIAnimator.NamedDirectionalAnimation>
@@ -121,57 +132,33 @@ namespace HallOfGundead
                     8,
                     9
                     }, "die", tk2dSpriteAnimationClip.WrapMode.Once).fps = 7f;
+                    SpriteBuilder.AddAnimation(companion.spriteAnimator, PumpKinCollection, new List<int>
+                    {
+                    10,
+                    10,
+                    10
+                    }, "hit", tk2dSpriteAnimationClip.WrapMode.Once).fps = 1f;
 
                 }
                 var bs = prefab.GetComponent<BehaviorSpeculator>();
-                
+
                 prefab.GetOrAddComponent<ObjectVisibilityManager>();
                 BehaviorSpeculator behaviorSpeculator = EnemyDatabase.GetOrLoadByGuid("01972dee89fc4404a5c408d50007dad5").behaviorSpeculator;
                 bs.OverrideBehaviors = behaviorSpeculator.OverrideBehaviors;
                 bs.OtherBehaviors = behaviorSpeculator.OtherBehaviors;
-                shootpoint = new GameObject("fuck");
+                shootpoint = new GameObject("shoot");
                 shootpoint.transform.parent = companion.transform;
                 shootpoint.transform.position = companion.sprite.WorldCenter;
-                GameObject m_CachedGunAttachPoint = companion.transform.Find("fuck").gameObject;
-                bs.TargetBehaviors = new List<TargetBehaviorBase>
-            {
-                new TargetPlayerBehavior
+                bs.TargetBehaviors = EnemyDatabase.GetOrLoadByGuid("042edb1dfb614dc385d5ad1b010f2ee3").behaviorSpeculator.TargetBehaviors;
+                bs.MovementBehaviors = EnemyDatabase.GetOrLoadByGuid("042edb1dfb614dc385d5ad1b010f2ee3").behaviorSpeculator.MovementBehaviors;
+                if (EnemyDatabase.GetOrLoadByGuid("042edb1dfb614dc385d5ad1b010f2ee3").behaviorSpeculator.TargetBehaviors == null)
                 {
-                    Radius = 35f,
-                    LineOfSight = false,
-                    ObjectPermanence = true,
-                    SearchInterval = 0f,
-                    PauseOnTargetSwitch = false,
-                    PauseTime = 0f,
-                    
+                    ETGModConsole.Log("TargetBehaviours null");
                 }
-            };
-                bs.AttackBehaviors = new List<AttackBehaviorBase>() {
-                new ShootBehavior() {
-                    ShootPoint = m_CachedGunAttachPoint,
-                    BulletScript = new CustomBulletScriptSelector(typeof(EmptyScript)),
-                    LeadAmount = 0f,
-                    AttackCooldown = 100f,
-                    RequiresLineOfSight = false,
-                    Uninterruptible = true
-                }
-                };
-                bs.MovementBehaviors = new List<MovementBehaviorBase>
-            {
-                new SeekTargetBehavior
+                if (EnemyDatabase.GetOrLoadByGuid("042edb1dfb614dc385d5ad1b010f2ee3").behaviorSpeculator.MovementBehaviors == null)
                 {
-                    StopWhenInRange = false,
-                    CustomRange = 0f,
-                    LineOfSight = false,
-                    ReturnToSpawn = false,
-                    SpawnTetherDistance = 0f,
-                    PathInterval = 0.5f,
-                    SpecifyRange = false,
-                    MinActiveRange = 0f,
-                    MaxActiveRange = 0f
+                    ETGModConsole.Log("MovementBehaviors null");
                 }
-            };
-
                 bs.InstantFirstTick = behaviorSpeculator.InstantFirstTick;
                 bs.TickInterval = behaviorSpeculator.TickInterval;
                 bs.PostAwakenDelay = behaviorSpeculator.PostAwakenDelay;
@@ -246,30 +233,6 @@ namespace HallOfGundead
 				};
                 
 			}
-
-
-		}
-
-		public class EmptyScript : Script
-		{
-			//protected override IEnumerator Top()
-			//{
-			//	if (this.BulletBank && this.BulletBank.aiActor && this.BulletBank.aiActor.TargetRigidbody)
-			//	{
-			//		base.BulletBank.Bullets.Add(EnemyDatabase.GetOrLoadByGuid("796a7ed4ad804984859088fc91672c7f").bulletBank.GetBullet("default"));
-			//	}
-			//	for (int i = 0; i < 4; i++)
-			//	{
-			//		this.Fire(new Direction((float)(i * 80), DirectionType.Absolute, -1f), new Speed(5f, SpeedType.Absolute), new DefaultBullet());
-			//	}
-			//	yield break;
-			//}
-		}
-
-		public class DefaultBullet : Bullet
-		{
-			public DefaultBullet() : base("default", false, false, false) { }
-
 		}
 
 	}

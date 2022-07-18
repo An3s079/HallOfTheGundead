@@ -56,7 +56,7 @@ namespace HallOfGundead
 			shared_auto_001 = assetBundle;
 			shared_auto_002 = assetBundle2;
 			braveResources = ResourceManager.LoadAssetBundle("brave_resources_001");
-			if(HallAssets is null)
+			if(HallAssets == null)
 			{
 				ETGModConsole.Log("HallAssets is null!");
 			}
