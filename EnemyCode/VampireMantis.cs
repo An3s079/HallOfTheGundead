@@ -16,7 +16,7 @@ namespace HallOfGundead
 {
 	class VampireMantis : AIActor
 	{
-		public static GameObject fuckyouprefab;
+		public static GameObject prefab;
 		public static readonly string guid = "Vampire-Mantis";
 		private static tk2dSpriteCollectionData TemplateBossCollection;
 		public static GameObject shootpoint;
@@ -27,22 +27,24 @@ namespace HallOfGundead
 
 		public static void Init()
 		{
-
 			VampireMantis.BuildPrefab();
 		}
 
 		public static void BuildPrefab()
 		{
-			bool flag = fuckyouprefab != null || BossBuilder.Dictionary.ContainsKey(guid);
-			bool flag2 = flag;
-			if (!flag2)
+			bool flag = prefab != null || BossBuilder.Dictionary.ContainsKey(guid);
+			if (!flag)
 			{
-				//ETGModConsole.Log(1.ToString());
-				fuckyouprefab = BossBuilder.BuildPrefab("TemplateBoss", guid, spritePaths[0], new IntVector2(0, 0), new IntVector2(8, 9), false, true);
-				var companion = fuckyouprefab.AddComponent<EnemyBehavior>();
-				companion.aiActor = fuckyouprefab.GetComponent<AIActor>();
-				companion.aiAnimator = fuckyouprefab.GetComponent<AIAnimator>();
-				companion.spriteAnimator = fuckyouprefab.GetComponent<tk2dSpriteAnimator>();
+				prefab = BossBuilder.BuildPrefab("VampireMantis", guid, spritePaths[0], new IntVector2(0, 0), new IntVector2(8, 9), false, true);
+				prefab.name = "VampireMantis";
+				var companion = prefab.AddComponent<EnemyBehavior>();
+				companion.aiActor = prefab.GetComponent<AIActor>();
+				companion.aiAnimator = prefab.GetComponent<AIAnimator>();
+				companion.spriteAnimator = prefab.GetComponent<tk2dSpriteAnimator>();
+				companion.healthHaver = prefab.GetComponent<HealthHaver>();
+				companion.specRigidbody = prefab.GetComponent<SpeculativeRigidbody>();
+				prefab.GetComponent<AIActor>().enabled = true;
+				prefab.GetComponent<AIAnimator>().enabled = true;
 				if (companion.aiActor is null)
 				{
 					ETGModConsole.Log("companion.aiactor is null!");
@@ -54,7 +56,6 @@ namespace HallOfGundead
 				companion.aiActor.HasShadow = false;
 				companion.aiActor.IgnoreForRoomClear = false;
 				companion.aiActor.aiAnimator.HitReactChance = 0.05f;
-		
 				companion.aiActor.specRigidbody.CollideWithOthers = true;
 				companion.aiActor.specRigidbody.CollideWithTileMap = true;
 				companion.aiActor.PreventFallingInPitsEver = true;
@@ -65,53 +66,9 @@ namespace HallOfGundead
 				companion.aiActor.procedurallyOutlined = true;
 				companion.aiActor.HasShadow = true;
 				companion.aiActor.SetIsFlying(true, "bat");
-				
-
-
 
 				companion.aiActor.specRigidbody.PixelColliders.Clear();
-				companion.aiActor.specRigidbody.PixelColliders.Add(new PixelCollider
-
-				{
-					ColliderGenerationMode = PixelCollider.PixelColliderGeneration.Manual,
-					CollisionLayer = CollisionLayer.EnemyCollider,
-					IsTrigger = false,
-					BagleUseFirstFrameOnly = false,
-					SpecifyBagelFrame = string.Empty,
-					BagelColliderNumber = 0,
-					ManualOffsetX = 0,
-					ManualOffsetY = 0,
-					ManualWidth = 36,
-					ManualHeight = 40,
-					ManualDiameter = 0,
-					ManualLeftX = 0,
-					ManualLeftY = 0,
-					ManualRightX = 0,
-					ManualRightY = 0
-				});
-
-				companion.aiActor.specRigidbody.PixelColliders.Add(new PixelCollider
-				{
-
-					ColliderGenerationMode = PixelCollider.PixelColliderGeneration.Manual,
-					CollisionLayer = CollisionLayer.EnemyHitBox,
-					IsTrigger = false,
-					BagleUseFirstFrameOnly = false,
-					SpecifyBagelFrame = string.Empty,
-					BagelColliderNumber = 0,
-					ManualOffsetX = 0,
-					ManualOffsetY = 0,
-					ManualWidth = 36,
-					ManualHeight = 40,
-					ManualDiameter = 0,
-					ManualLeftX = 0,
-					ManualLeftY = 0,
-					ManualRightX = 0,
-					ManualRightY = 0,
-
-
-
-				});
+				
 
 				companion.aiActor.CorpseObject = EnemyDatabase.GetOrLoadByGuid("01972dee89fc4404a5c408d50007dad5").CorpseObject;
 				companion.aiActor.PreventBlackPhantom = false;
@@ -123,7 +80,6 @@ namespace HallOfGundead
 					AnimNames = new string[1],
 					Flipped = new DirectionalAnimation.FlipType[1]
 				};
-
 
 				DirectionalAnimation bat_flap = new DirectionalAnimation
 				{
@@ -344,12 +300,13 @@ namespace HallOfGundead
 				bool flag3 = TemplateBossCollection == null;
 				if (flag3)
 				{
-					TemplateBossCollection = SpriteBuilder.ConstructCollection(fuckyouprefab, "TemplateBossCollection");
+					TemplateBossCollection = SpriteBuilder.ConstructCollection(prefab, "TemplateBossCollection");
 					UnityEngine.Object.DontDestroyOnLoad(TemplateBossCollection);
 					for (int i = 0; i < spritePaths.Length; i++)
 					{
 						SpriteBuilder.AddSpriteToCollection(spritePaths[i], TemplateBossCollection);
 					}
+
 					SpriteBuilder.AddAnimation(companion.spriteAnimator, TemplateBossCollection, new List<int>
 					{
 
@@ -427,7 +384,7 @@ namespace HallOfGundead
 
 				}
 
-				var bs = fuckyouprefab.GetComponent<BehaviorSpeculator>();
+				var bs = prefab.GetComponent<BehaviorSpeculator>();
 				BehaviorSpeculator behaviorSpeculator = EnemyDatabase.GetOrLoadByGuid("01972dee89fc4404a5c408d50007dad5").behaviorSpeculator;
 				bs.OverrideBehaviors = behaviorSpeculator.OverrideBehaviors;
 				bs.OtherBehaviors = behaviorSpeculator.OtherBehaviors;
@@ -549,7 +506,48 @@ namespace HallOfGundead
 					//},
 				};
 
+				companion.aiActor.specRigidbody.PixelColliders.Add(new PixelCollider
 
+				{
+					ColliderGenerationMode = PixelCollider.PixelColliderGeneration.Manual,
+					CollisionLayer = CollisionLayer.EnemyCollider,
+					IsTrigger = false,
+					BagleUseFirstFrameOnly = false,
+					SpecifyBagelFrame = string.Empty,
+					BagelColliderNumber = 0,
+					ManualOffsetX = 0,
+					ManualOffsetY = 0,
+					ManualWidth = 36,
+					ManualHeight = 40,
+					ManualDiameter = 0,
+					ManualLeftX = 0,
+					ManualLeftY = 0,
+					ManualRightX = 0,
+					ManualRightY = 0,
+					Sprite = (tk2dBaseSprite)companion.spriteAnimator.sprite
+				}) ; 
+				companion.aiActor.specRigidbody.PixelColliders.Add(new PixelCollider
+				{
+
+					ColliderGenerationMode = PixelCollider.PixelColliderGeneration.Manual,
+					CollisionLayer = CollisionLayer.EnemyHitBox,
+					IsTrigger = false,
+					BagleUseFirstFrameOnly = false,
+					SpecifyBagelFrame = string.Empty,
+					BagelColliderNumber = 0,
+					ManualOffsetX = 0,
+					ManualOffsetY = 0,
+					ManualWidth = 36,
+					ManualHeight = 40,
+					ManualDiameter = 0,
+					ManualLeftX = 0,
+					ManualLeftY = 0,
+					ManualRightX = 0,
+					ManualRightY = 0,
+
+
+
+				});
 
 				bs.InstantFirstTick = behaviorSpeculator.InstantFirstTick;
 				bs.TickInterval = behaviorSpeculator.TickInterval;
@@ -563,8 +561,8 @@ namespace HallOfGundead
 
 
 
-				GenericIntroDoer miniBossIntroDoer = fuckyouprefab.AddComponent<GenericIntroDoer>();
-				fuckyouprefab.AddComponent<VampireMantisIntroDoer>();
+				GenericIntroDoer miniBossIntroDoer = prefab.AddComponent<GenericIntroDoer>();
+				prefab.AddComponent<VampireMantisIntroDoer>();
 				miniBossIntroDoer.triggerType = GenericIntroDoer.TriggerType.PlayerEnteredRoom;
 				miniBossIntroDoer.initialDelay = 0.15f;
 				miniBossIntroDoer.cameraMoveSpeed = 14;
@@ -582,9 +580,9 @@ namespace HallOfGundead
 				miniBossIntroDoer.restrictPlayerMotionToRoom = false;
 				miniBossIntroDoer.fusebombLock = false;
 				miniBossIntroDoer.AdditionalHeightOffset = 0;
-				FLoorModModule.Strings.Enemies.Set("#VAMPIRENAME", "Vampire Mantis");
-				FLoorModModule.Strings.Enemies.Set("#VAMPIRESHDES", "I Vant to Suck Your Dick!");
-				FLoorModModule.Strings.Enemies.Set("#QUOTE", "");
+				FloorModModule.Strings.Enemies.Set("#VAMPIRENAME", "Vampire Mantis");
+				FloorModModule.Strings.Enemies.Set("#VAMPIRESHDES", "I Vant to Suck Your Dick!");
+				FloorModModule.Strings.Enemies.Set("#QUOTE", "");
 				miniBossIntroDoer.portraitSlideSettings = new PortraitSlideSettings()
 				{
 					bossNameString = "#VAMPIRENAME",

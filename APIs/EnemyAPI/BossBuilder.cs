@@ -8,8 +8,6 @@ using MonoMod.RuntimeDetour;
 using Brave.BulletScript;
 using DirectionType = DirectionalAnimation.DirectionType;
 using FlipType = DirectionalAnimation.FlipType;
-using HallOfGundead;
-using GungeonAPI;
 
 namespace ItemAPI
 {
@@ -21,7 +19,7 @@ namespace ItemAPI
         public static void Init()
         {
             var actor = EnemyDatabase.GetOrLoadByGuid("f905765488874846b7ff257ff81d6d0c");
-            behaviorSpeculatorPrefab = GameObject.Instantiate(actor.gameObject);
+            behaviorSpeculatorPrefab = GameObject.Instantiate(actor.gameObject,);
 
             foreach (Transform child in behaviorSpeculatorPrefab.transform)
             {
@@ -71,8 +69,7 @@ namespace ItemAPI
             //setup misc components
             var sprite = SpriteBuilder.SpriteFromResource(defaultSpritePath, prefab).GetComponent<tk2dSprite>();
 
-            var specRigidbody = sprite.SetUpSpeculativeRigidbody(hitboxOffset, hitBoxSize);
-            specRigidbody.CollideWithOthers = true;
+            sprite.SetUpSpeculativeRigidbody(hitboxOffset, hitBoxSize).CollideWithOthers = true;
             prefab.AddComponent<tk2dSpriteAnimator>();
             prefab.AddComponent<AIAnimator>();
 
@@ -89,15 +86,13 @@ namespace ItemAPI
             healthHaver.PreventAllDamage = false;
             healthHaver.SetHealthMaximum(15000);
             healthHaver.FullHeal();
-
+            
             //setup AI Actor
             var aiActor = prefab.AddComponent<AIActor>();
             aiActor.State = AIActor.ActorState.Normal;
             aiActor.EnemyGuid = guid;
             aiActor.HasShadow = false;
-            aiActor.healthHaver = healthHaver;
-            aiActor.aiAnimator = prefab.GetComponent<AIAnimator>();
-            aiActor.specRigidbody = specRigidbody;
+
             //setup behavior speculator
             var bs = prefab.GetComponent<BehaviorSpeculator>();
 
@@ -383,6 +378,13 @@ namespace ItemAPI
                 aishooter.IsReallyBigBoy = sourceShooter.IsReallyBigBoy;
                 aishooter.BackupAimInMoveDirection = sourceShooter.BackupAimInMoveDirection;
                 aishooter.RegenerateCache();
+            }
+        }
+        public class Tint : BraveBehaviour
+        {
+            private void Start()
+            {
+                EnemyTools.DisableSuperTinting(base.aiActor);
             }
         }
     }

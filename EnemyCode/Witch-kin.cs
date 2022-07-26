@@ -147,6 +147,8 @@ namespace HallOfGundead
                 companion.aiActor.CanTargetPlayers = true;
                 companion.aiActor.healthHaver.SetHealthMaximum(28f, null, false);
                 companion.aiActor.specRigidbody.PixelColliders.Clear();
+                companion.aiActor.AwakenAnimType = AwakenAnimationType.Awaken;
+
                 companion.aiActor.specRigidbody.PixelColliders.Add(new PixelCollider
                 {
                     ColliderGenerationMode = PixelCollider.PixelColliderGeneration.Manual,
@@ -218,6 +220,20 @@ namespace HallOfGundead
                             {
                             "die_left",
                             "die_right"
+                            }
+
+                        }
+                    },
+                     new AIAnimator.NamedDirectionalAnimation
+                    {
+                    name = "awake",
+                    anim = new DirectionalAnimation
+                        {
+                            Type = DirectionalAnimation.DirectionType.TwoWayHorizontal,
+                            Flipped = new DirectionalAnimation.FlipType[2],
+                            AnimNames = new string[]
+                            {
+                            "awake"
                             }
 
                         }
@@ -405,6 +421,10 @@ namespace HallOfGundead
                     59,
                     60
                     }, "die_right", tk2dSpriteAnimationClip.WrapMode.Once).fps = 5;
+                    ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, WitchKinCollection, new List<int>
+                    {
+                    0
+                    }, "awake", tk2dSpriteAnimationClip.WrapMode.Once).fps = 5;
                 }
 
 

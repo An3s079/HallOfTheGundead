@@ -66,7 +66,7 @@ namespace HallOfGundead
 					ManualLeftX = 0,
 					ManualLeftY = 0,
 					ManualRightX = 0,
-					ManualRightY = 0
+					ManualRightY = 0,
 				});
 				companion.aiActor.specRigidbody.PixelColliders.Add(new PixelCollider
 				{
@@ -105,7 +105,7 @@ namespace HallOfGundead
 							AnimNames = new string[]
 							{
 
-					   "die_right",
+						   "die_right",
 						   "die_left"
 
 							}
@@ -185,17 +185,21 @@ namespace HallOfGundead
 
 
 
-					0,
-					0,
-					0
+					16,
+					17,
+					18,
+					19,
+					20
 
 
 					}, "die_right", tk2dSpriteAnimationClip.WrapMode.Once).fps = 5f;
 					ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, TrankCollection, new List<int>
 					{
-					0,
-					0,
-					0
+					21,
+					22,
+					23,
+					24,
+					25
 
 					}, "die_left", tk2dSpriteAnimationClip.WrapMode.Once).fps = 5f;
 
@@ -304,6 +308,7 @@ namespace HallOfGundead
 				Game.Enemies.Add("hotg:trankensteins_monster", companion.aiActor);
 
 				bitch = companion.aiActor;
+				
 			}
 		}
 		private static AIActor bitch;
@@ -363,10 +368,23 @@ namespace HallOfGundead
 			"HallOfGundead/Resources/Trankenstein/tranken_run_right_003",
 			"HallOfGundead/Resources/Trankenstein/tranken_run_right_004",
 			"HallOfGundead/Resources/Trankenstein/tranken_run_right_005",
-			"HallOfGundead/Resources/Trankenstein/tranken_run_right_006"
+			"HallOfGundead/Resources/Trankenstein/tranken_run_right_006",
 
+			//die left
+			"HallOfGundead/Resources/Trankenstein/tranken_die_left_001",
+			"HallOfGundead/Resources/Trankenstein/tranken_die_left_002",
+			"HallOfGundead/Resources/Trankenstein/tranken_die_left_003",
+			"HallOfGundead/Resources/Trankenstein/tranken_die_left_004",
+			"HallOfGundead/Resources/Trankenstein/tranken_die_left_005",
+
+			//die right
+			"HallOfGundead/Resources/Trankenstein/tranken_die_right_001",
+			"HallOfGundead/Resources/Trankenstein/tranken_die_right_002",
+			"HallOfGundead/Resources/Trankenstein/tranken_die_right_003",
+			"HallOfGundead/Resources/Trankenstein/tranken_die_right_004",
+			"HallOfGundead/Resources/Trankenstein/tranken_die_right_005",
 			//who even needs attack anims amirite
-				};
+		};
 
 		public class EnemyBehavior : BraveBehaviour
 		{

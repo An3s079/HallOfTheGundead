@@ -77,9 +77,9 @@ namespace ItemAPI
             enemy.encounterTrackable.journalData.AmmonomiconSprite = AmmonomiconSprite;
             enemy.encounterTrackable.journalData.enemyPortraitSprite = ResourceExtractor.GetTextureFromResource(portrait + ".png");
             enemy.encounterTrackable.ProxyEncounterGuid = "";
-            //FLoorModModule.Strings.Enemies.Set("#" + EnemyName.ToUpper(), EnemyName);
-           // FLoorModModule.Strings.Enemies.Set("#" + shortDesc.ToUpper(), shortDesc);
-           // FLoorModModule.Strings.Enemies.Set("#" + longDesc.ToUpper(), longDesc);
+            //FloorModModule.Strings.Enemies.Set("#" + EnemyName.ToUpper(), EnemyName);
+           // FloorModModule.Strings.Enemies.Set("#" + shortDesc.ToUpper(), shortDesc);
+           // FloorModModule.Strings.Enemies.Set("#" + longDesc.ToUpper(), longDesc);
             enemy.encounterTrackable.journalData.PrimaryDisplayName = "#" + EnemyName.ToUpper();
             enemy.encounterTrackable.journalData.NotificationPanelDescription = "#" + shortDesc.ToUpper();
             enemy.encounterTrackable.journalData.AmmonomiconFullEntry = "#" + longDesc.ToUpper();

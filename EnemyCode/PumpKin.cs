@@ -68,6 +68,8 @@ namespace HallOfGundead
                 companion.aiActor.CollisionKnockbackStrength = 5f;
                 companion.aiActor.healthHaver.SetHealthMaximum(80f, null, false);
                 AIAnimator aiAnimator = companion.aiAnimator;
+                companion.aiActor.AwakenAnimType = AIActor.AwakenAnimationType.Awaken;
+
                 aiAnimator.IdleAnimation = new DirectionalAnimation
                 {
                     Type = DirectionalAnimation.DirectionType.TwoWayHorizontal,
@@ -99,6 +101,20 @@ namespace HallOfGundead
                             {
 
                        "die",
+                            }
+
+                        }
+                    },
+                    new AIAnimator.NamedDirectionalAnimation
+                    {
+                    name = "awake",
+                    anim = new DirectionalAnimation
+                        {
+                            Type = DirectionalAnimation.DirectionType.TwoWayHorizontal,
+                            Flipped = new DirectionalAnimation.FlipType[2],
+                            AnimNames = new string[]
+                            {
+                            "awake",
                             }
 
                         }
@@ -138,7 +154,10 @@ namespace HallOfGundead
                     10,
                     10
                     }, "hit", tk2dSpriteAnimationClip.WrapMode.Once).fps = 1f;
-
+                    SpriteBuilder.AddAnimation(companion.spriteAnimator, PumpKinCollection, new List<int>
+                    {
+                    0
+                    }, "awake", tk2dSpriteAnimationClip.WrapMode.Once).fps = 1f;
                 }
                 var bs = prefab.GetComponent<BehaviorSpeculator>();
 

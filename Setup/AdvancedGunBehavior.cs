@@ -9,7 +9,7 @@ namespace HallOfGundead
 {
     class AdvancedGunBehaviour : MonoBehaviour, IGunInheritable
     {
-        protected virtual void Update()
+        public virtual void Update()
         {
             if (this.Player != null)
             {
@@ -232,7 +232,7 @@ namespace HallOfGundead
         {
         }
 
-        protected virtual void OnPickup(GameActor owner)
+        public virtual void OnPickup(GameActor owner)
         {
             if (owner is PlayerController)
             {
@@ -244,7 +244,7 @@ namespace HallOfGundead
             }
         }
 
-        protected virtual void OnPostDrop(GameActor owner)
+        public virtual void OnPostDrop(GameActor owner)
         {
             if (owner is PlayerController)
             {
@@ -256,19 +256,19 @@ namespace HallOfGundead
             }
         }
 
-        protected virtual void OnPickedUpByPlayer(PlayerController player)
+        public virtual void OnPickedUpByPlayer(PlayerController player)
         {
         }
 
-        protected virtual void OnPostDroppedByPlayer(PlayerController player)
+        public virtual void OnPostDroppedByPlayer(PlayerController player)
         {
         }
 
-        protected virtual void OnPickedUpByEnemy(AIActor enemy)
+        public virtual void OnPickedUpByEnemy(AIActor enemy)
         {
         }
 
-        protected virtual void OnPostDroppedByEnemy(AIActor enemy)
+        public virtual void OnPostDroppedByEnemy(AIActor enemy)
         {
         }
 
@@ -331,7 +331,7 @@ namespace HallOfGundead
         private GameActor lastOwner = null;
         public bool everPickedUpByPlayer = false;
         public bool everPickedUp = false;
-        protected Gun gun;
+        public Gun gun;
         private bool hasReloaded = true;
         public bool preventNormalFireAudio;
         public bool preventNormalReloadAudio;

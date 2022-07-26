@@ -14,7 +14,6 @@ using tk2dRuntime.TileMap;
 using System.IO;
 using SGUI;
 using MonoMod.RuntimeDetour;
-using System.ComponentModel;
 namespace HallOfGundead
 {
 
@@ -845,7 +844,7 @@ namespace HallOfGundead
             public float HomingRadius = 2f;
 
             public float AngularVelocity = 180f;
-            protected Projectile m_projectile;
+            public Projectile m_projectile;
         }
         public static SpeculativeRigidbody GenerateOrAddToRigidBody(GameObject targetObject, CollisionLayer collisionLayer, PixelCollider.PixelColliderGeneration colliderGenerationMode = PixelCollider.PixelColliderGeneration.Tk2dPolygon, bool collideWithTileMap = false, bool CollideWithOthers = true, bool CanBeCarried = true, bool CanBePushed = false, bool RecheckTriggers = false, bool IsTrigger = false, bool replaceExistingColliders = false, bool UsesPixelsAsUnitSize = false, IntVector2? dimensions = null, IntVector2? offset = null)
         {

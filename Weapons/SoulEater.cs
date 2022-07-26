@@ -84,7 +84,7 @@ namespace HallOfGundead
         private bool hasUpgraded = false;
         //This block of code allows us to change the reload sounds.
 
-        protected void Update()
+        public void Update()
         {
             if(nonBossSoulsCollected >=99 && BossSoulsCollected >=1 && hasUpgraded == false)
             {

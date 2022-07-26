@@ -13,53 +13,53 @@ using CursorAPI;
 using Gungeon;
 using SGUI;
 using MonoMod.RuntimeDetour;
-using UnityEngine.SceneManagement;
 using EnemyAPI;
 using System.IO;
+using BepInEx;
+using BindingAPI;
 
 namespace HallOfGundead
 {
-
-    public class FLoorModModule : ETGModule
+    [BepInDependency("etgmodding.etg.mtgapi")]
+    [BepInPlugin("an3s.etg.hotg", MOD_NAME, VERSION)]
+    public class FloorModModule : BaseUnityPlugin
     {
-        public static string ZipFilePath;
-        public static string FilePath;
-        public static ETGModuleMetadata metadata = new ETGModuleMetadata();
-
-
+        public static FloorModModule Instance;
         public static AdvancedStringDB Strings;
         List<int> ItemIds = new List<int>();
         public static List<ItemAndWeight> itemandWeight = new List<ItemAndWeight>();
 
-        public static readonly string MOD_NAME = "Hall of The Gundead";
-        public static readonly string VERSION = "0.0.0";
+        public const string MOD_NAME = "Hall of The Gundead";
+        public const string VERSION = "1.0.0";
         public static readonly string TEXT_COLOR = "#00FFFF";
-        public override void Start()
+        public void Start()
+        {
+            Instance = this;
+            ETGModMainBehaviour.WaitForGameManagerStart(postStart);               
+        }
+
+        private void postStart(GameManager obj)
         {
             try
             {
-                ETGModConsole.Log(Application.version);
                 ETGMod.AIActor.OnPreStart += this.AddYoloComponent;
                 //ETGModMainBehaviour.Instance.gameObject.AddComponent<CHeckPos>();
                 /*
                  setup
                 */
                 // AdvancedLogging.Init();
-                metadata = this.Metadata;
-                ZipFilePath = this.Metadata.Archive;
-                FilePath = this.Metadata.Directory + "";
                 EnemyTools.Init();
                 AudioResourceLoader.InitAudio();
 
                 ItemAPI.Tools.Init();
-
+                EnemyTools.Init();
                 BossBuilder.Init();
                 BulletBuilder.Init();
                 EnemyBuilder.Init();
                 FakePrefabHooks.Init();
                 ItemBuilder.Init();
                 ChallengeBuilder.Init();
-                
+
                 CursorMaker.Init();
                 ChallengeBuilder.BuildChallenge<DizzyChallenge>("HallOfGundead/Resources/DizzyChallengeFrame.png", "Dizzy", true, null, null, null, true, true);
                 CursorMaker.BuildCursor("HallOfGundead/Resources/gtcktpCursor_Cursor.png");
@@ -83,32 +83,32 @@ namespace HallOfGundead
                */
                 NonBossSoul.Init();
                 BossSoul.Init();
-                ItemIds.Add(BloodiedChamber.Init());
-
+                BloodiedChamber.Init();
+                //IncubiChiarm.Init();
                 /*
                 Weapons
                */
-                ItemIds.Add(SoulEater.Add());
+                SoulEater.Add();
                 SoulEaterEvolution.Add();
                 spapiGun.Add();
 
-                foreach (int i in ItemIds)
-                {
-                    itemandWeight.Add(new ItemAndWeight
-                    {
+                //foreach (int i in ItemIds)
+                //{
+                //    itemandWeight.Add(new ItemAndWeight
+                //    {
 
-                        itemID = i,
-                        itemWeight = 1
+                //        itemID = i,
+                //        itemWeight = 1
 
-                    }
+                //    }
 
-                    );
-                    //Log("added" + i);
-                }
+                //    );
+                //    //Log("added" + i);
+                //}
 
-                
 
-                HalloweenChest.Init(); //has to be at bottom
+
+                //HalloweenChest.Init(); //has to be at bottom
                 var Go = new GameObject();
                 ETGModConsole.Commands.AddGroup("hall");
                 ETGModConsole.Commands.GetGroup("hall").AddUnit("load", new Action<string[]>(this.LoadHall));
@@ -122,18 +122,16 @@ namespace HallOfGundead
 
                 Hook hook = new Hook(
                    typeof(GameManager).GetMethod("Awake", BindingFlags.NonPublic | BindingFlags.Instance),
-                   typeof(FLoorModModule).GetMethod("GameManager_Awake", BindingFlags.NonPublic | BindingFlags.Instance),
+                   typeof(FloorModModule).GetMethod("GameManager_Awake", BindingFlags.NonPublic | BindingFlags.Instance),
                    typeof(GameManager)
                );
-                AdvancedLogging.Log($"{MOD_NAME} v{VERSION} started successfully.", new Color32(23, 235, 196, 255), false, true);
-                
+               ETGModConsole.Log($"{MOD_NAME} v{VERSION} started successfully.").Colors[0] = new Color32(23, 235, 196, 255);
             }
             catch (Exception e)
             {
-                AdvancedLogging.LogPlain(e, Color.red);
+                ETGModConsole.Log(e).Colors[0] = Color.red;
             }
         }
-
         private void GameManager_Awake(Action<GameManager> orig, GameManager self)
         {
             orig(self);
@@ -168,8 +166,7 @@ namespace HallOfGundead
         {
             ETGModConsole.Log($"<color={color}>{text}</color>");
         }
-        public override void Exit() { }
-        public override void Init() { }
+
         public static List<GameUIAmmoType> addedAmmoTypes = new List<GameUIAmmoType>();
 
 

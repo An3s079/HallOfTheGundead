@@ -28,7 +28,7 @@ namespace HallOfGundead
         };
         public static void Init()
         {
-             PompChest = ChestBuilder.CreateChest("HallOfGundead/Resources/pomp_chest/pomp_chest", "Halloween Pumpkin Chest", new IntVector2(0,0), new IntVector2(200, 200), pompChestCollection, FLoorModModule.itemandWeight, 4, 9, 40, 37, 10, ChestBuilder.ChestType.Unspecified, true, null);
+             PompChest = ChestBuilder.CreateChest("HallOfGundead/Resources/pomp_chest/pomp_chest", "Halloween Pumpkin Chest", new IntVector2(0,0), new IntVector2(200, 200), pompChestCollection, FloorModModule.itemandWeight, 4, 9, 40, 37, 10, ChestBuilder.ChestType.Unspecified, true, null);
             PompChest.IsLocked = true;
         }
     }

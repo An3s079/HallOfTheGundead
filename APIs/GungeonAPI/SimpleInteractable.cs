@@ -38,9 +38,9 @@ namespace GungeonAPI
         public bool isToggle;
 
 		// Token: 0x04000037 RID: 55
-		protected bool m_isToggled;
+		public bool m_isToggled;
 
 		// Token: 0x04000038 RID: 56
-		protected bool m_canUse = true;
+		public bool m_canUse = true;
 	}
 }

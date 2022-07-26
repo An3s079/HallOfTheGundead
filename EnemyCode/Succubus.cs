@@ -30,6 +30,7 @@ namespace HallOfGundead
         {
             //
             prefab = EnemyBuilder.BuildPrefab("Succubus", guid, spritePaths[0], new IntVector2(0, 0), new IntVector2(8, 9), false);
+            Toolbox.GenerateOrAddToRigidBody(prefab, CollisionLayer.EnemyHitBox, PixelCollider.PixelColliderGeneration.Manual, IsTrigger: false, UsesPixelsAsUnitSize: true, dimensions: new IntVector2(24, 28), offset: new IntVector2(4, 1));
             var companion = prefab.AddComponent<EnemyBehavior>();
             companion.aiActor.SetIsFlying(false, "idk lmao, it just cant. DO I NEED TO EXPLAIN MYSLEF TO YOU MUTHA*****?", true, true);
             companion.aiActor.knockbackDoer.weight = 50;
@@ -65,7 +66,7 @@ namespace HallOfGundead
                         "idle_left"
                 }
             };
-
+            
             bool flag3 = SuccuColection == null;
             if (flag3)
             {
@@ -92,12 +93,12 @@ namespace HallOfGundead
                     {
 
                     0,1,2,3,4,5,6,7,8
-                    }, "run_left", tk2dSpriteAnimationClip.WrapMode.Once).fps = 10f;
+                    }, "run_left", tk2dSpriteAnimationClip.WrapMode.Once).fps = 20f;
                 ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, SuccuColection, new List<int>
                     {
                     9,10,11,12,13,14,15,16,17
 
-                    }, "run_right", tk2dSpriteAnimationClip.WrapMode.Once).fps = 10f;
+                    }, "run_right", tk2dSpriteAnimationClip.WrapMode.Once).fps = 20f;
                 ItemAPI.SpriteBuilder.AddAnimation(companion.spriteAnimator, SuccuColection, new List<int>
                     {
 
@@ -183,7 +184,7 @@ namespace HallOfGundead
           
             protected override IEnumerator Top() // This is just a simple example, but bullet scripts can do so much more.
             {
-                AkSoundEngine.PostEvent("Play_WPN_stickycrossbow_shot_01", this.BulletBank.aiActor.gameObject);
+                AkSoundEngine.PostEvent("Play_ENM_bombshee_scream_01", this.BulletBank.aiActor.gameObject);
                 m_distortionCenter = base.BulletBank.aiActor.sprite.WorldCenter;
                 float m_prevWaveDist = 0f;
                 Exploder.DoDistortionWave(m_distortionCenter, distortionIntensity, distortionThickness, distortionMaxRadius, distortionDuration);

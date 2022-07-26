@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using Ionic.Zip;
 using UnityEngine;
 
 
@@ -48,31 +47,7 @@ namespace HallOfGundead
 
         public void AutoloadFromModZIPOrModFolder(string path)
         {
-            int FilesLoaded = 0;
-            if (File.Exists(path))
-            {
-                Debug.Log("Zip Found");
-                ZipFile ModZIP = ZipFile.Read(path);
-                if (ModZIP != null && ModZIP.Entries.Count > 0)
-                {
-                    foreach (ZipEntry entry in ModZIP.Entries)
-                    {
-                        if (entry.FileName.EndsWith(".bnk"))
-                        {
-                            using (MemoryStream ms = new MemoryStream())
-                            {
-                                entry.Extract(ms);
-                                ms.Seek(0, SeekOrigin.Begin);
-                                LoadSoundbankFromStream(ms, entry.FileName.ToLower().Replace(".bnk", string.Empty));
-                                FilesLoaded++;
-                            }
-                        }
-                    }
-                    if (FilesLoaded > 0) { return; }
-                }
-            }
-            // Zip file wasn't found. Try to load from Mod folder instead.
-            AutoloadFromPath(AudioResourceLoader.pathfile, "HallOfTheGundead");
+            AutoloadFromPath(FloorModModule.Instance.FolderPath(), "HallOfTheGundead");
         }
 
         public void AutoloadFromPath(string path, string prefix)

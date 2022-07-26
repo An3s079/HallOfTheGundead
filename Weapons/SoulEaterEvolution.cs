@@ -79,7 +79,7 @@ namespace HallOfGundead.Weapons
         private bool hasUpgraded = false;
         //This block of code allows us to change the reload sounds.
 
-        protected void Update()
+        public void Update()
         {
             if (gun.CurrentOwner)
             {

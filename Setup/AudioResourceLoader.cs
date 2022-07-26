@@ -12,13 +12,11 @@ namespace HallOfGundead
     {
         public static readonly string ResourcesDirectoryName = "HallOfTheGundead";
 
-        public static readonly string pathzip = FLoorModModule.ZipFilePath;
-        public static readonly string pathfile = FLoorModModule.FilePath;
 
 
         public static void InitAudio()
         {
-                LoadAllAutoloadResourcesFromModPath(pathzip);
+            LoadAllAutoloadResourcesFromModPath(FloorModModule.Instance.FolderPath());
             // LoadAllAutoloadResourcesFromAssembly(Assembly.GetExecutingAssembly(), "ExpandTheGungeon");
 
             // LoadAllAutoloadResourcesFromPath(FullPathAutoprocess, "ExpandTheGungeon");
